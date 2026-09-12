@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input {
+    @apply w-full bg-transparent py-3 text-sm font-medium text-content outline-none placeholder:text-muted/70;
+  }
+}
+
+/* ── Theme tokens ─────────────────────────────────────────────
+   Soft pastel "Daily Planner" aesthetic.
+   rgb triples so tailwind's <alpha-value> works: rgb(var(--x) / .5) */
+:root {
+  --bg: 233 238 251;        /* airy blue-lavender paper */
+  --surface: 255 255 255;   /* white cards */
+  --surface-2: 244 242 252; /* faint lavender */
+  --border: 228 225 242;
+  --content: 58 53 80;      /* soft plum ink (not harsh black) */
+  --muted: 141 136 165;
+  --brand: 167 139 250;     /* lavender accent */
+  --brand-soft: 237 233 254;
+  color-scheme: light;
+}
+
+:root.dark {
+  --bg: 23 21 31;           /* deep plum night */
+  --surface: 33 30 46;
+  --surface-2: 44 40 64;
+  --border: 58 52 82;
+  --content: 236 234 245;
+  --muted: 165 160 190;
+  --brand: 196 181 253;
+  --brand-soft: 52 45 78;
+  color-scheme: dark;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: rgb(var(--bg));
+  color: rgb(var(--content));
+  font-family: 'Quicksand', system-ui, sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+  overflow-x: hidden;
+}
+
+/* soft pastel ambient blobs behind everything */
+#root {
+  position: relative;
+  isolation: isolate;
+}
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(42% 26% at 90% 0%, rgb(249 168 212 / 0.16), transparent 62%),
+    radial-gradient(38% 24% at 2% 6%, rgb(196 181 253 / 0.16), transparent 62%),
+    radial-gradient(48% 30% at 50% 104%, rgb(134 239 172 / 0.12), transparent 62%);
+  pointer-events: none;
+}
+:root.dark #root::before {
+  background:
+    radial-gradient(45% 30% at 88% 2%, rgb(249 168 212 / 0.12), transparent 60%),
+    radial-gradient(40% 28% at 4% 8%, rgb(196 181 253 / 0.16), transparent 60%),
+    radial-gradient(50% 32% at 50% 102%, rgb(134 239 172 / 0.10), transparent 60%);
+}
+
+/* nicer scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgb(var(--border)); border-radius: 999px; }
+
+/* utilities */
+@layer utilities {
+  .glass {
+    background: rgb(var(--surface) / 0.8);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+  .safe-b { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-t { padding-top: env(safe-area-inset-top); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .text-balance { text-wrap: balance; }
+  .font-hand { font-family: 'Caveat', cursive; }
+  /* dotted planner rule under handwriting entries */
+  .planner-rule {
+    background-image: linear-gradient(to right, rgb(var(--border)) 40%, transparent 0);
+    background-position: bottom;
+    background-size: 8px 1.5px;
+    background-repeat: repeat-x;
+  }
+}
+
+.shimmer { position: relative; overflow: hidden; }
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.3), transparent);
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+/* gentle float for doodles */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-6px) rotate(var(--r, 0deg)); }
+}
