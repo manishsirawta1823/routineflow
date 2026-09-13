@@ -193,10 +193,10 @@ export function AuthScreen() {
                     )}
 
                     {error && (
-                      <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-sm font-semibold text-rose-500">{error}</p>
+                      <p className="rounded-2xl bg-rose-500/10 px-4 py-2.5 text-sm font-semibold text-rose-500">{error}</p>
                     )}
                     {notice && (
-                      <p className="flex items-start gap-1.5 rounded-xl bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-500">
+                      <p className="flex items-start gap-1.5 rounded-2xl bg-emerald-500/10 px-4 py-2.5 text-sm font-semibold text-emerald-500">
                         <Check size={15} className="mt-0.5 shrink-0" /> {notice}
                       </p>
                     )}

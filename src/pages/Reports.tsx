@@ -87,14 +87,14 @@ export function Reports() {
             key={p}
             onClick={() => setPeriod(p)}
             className={cn(
-              'relative flex-1 rounded-xl py-2 text-sm font-semibold capitalize transition',
+              'relative flex-1 rounded-full py-2.5 text-sm font-semibold capitalize transition',
               period === p ? 'text-white' : 'text-muted',
             )}
           >
             {period === p && (
               <motion.span
                 layoutId="period-pill"
-                className="absolute inset-0 rounded-xl bg-brand"
+                className="absolute inset-0 rounded-full bg-brand"
                 transition={{ type: 'spring', stiffness: 380, damping: 30 }}
               />
             )}
@@ -221,7 +221,7 @@ function StatTile({ icon, label, value, tint }: { icon: React.ReactNode; label: 
   return (
     <div className="rounded-2xl border border-border/70 bg-surface p-4 shadow-soft">
       <div
-        className="mb-2 grid h-9 w-9 place-items-center rounded-xl"
+        className="mb-2 grid h-10 w-10 place-items-center rounded-2xl"
         style={{ background: `rgb(${tint} / 0.15)`, color: `rgb(${tint})` }}
       >
         {icon}
@@ -235,7 +235,7 @@ function StatTile({ icon, label, value, tint }: { icon: React.ReactNode; label: 
 function ChartTip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null
   return (
-    <div className="rounded-xl border border-border bg-surface px-3 py-1.5 text-xs shadow-soft">
+    <div className="rounded-2xl border border-border bg-surface px-3 py-1.5 text-xs shadow-soft">
       <div className="font-semibold">{label}</div>
       <div className="text-brand">{payload[0].value}% done</div>
     </div>

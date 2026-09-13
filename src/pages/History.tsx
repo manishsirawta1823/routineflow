@@ -92,7 +92,7 @@ export function History() {
                 key={k}
                 onClick={() => setSelected(k)}
                 className={cn(
-                  'relative aspect-square rounded-xl text-sm font-semibold transition',
+                  'relative aspect-square rounded-2xl text-sm font-semibold transition',
                   rateColor(rate, has),
                   active && 'ring-2 ring-brand ring-offset-2 ring-offset-surface',
                   isTodayKey(k) && !active && 'ring-1 ring-brand/50',

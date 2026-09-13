@@ -27,7 +27,7 @@ export function Sheet({ open, onClose, title, children }: Props) {
   return createPortal(
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-[70] flex items-end justify-center sm:items-center">
+        <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
           <motion.div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
@@ -36,20 +36,15 @@ export function Sheet({ open, onClose, title, children }: Props) {
             onClick={onClose}
           />
           <motion.div
-            className="glass relative z-10 w-full max-w-lg rounded-t-3xl border border-border/70 p-5 pb-8 shadow-glow sm:rounded-3xl safe-b"
-            initial={{ y: '100%', opacity: 0.6 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: '100%', opacity: 0.4 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 32 }}
-            drag="y"
-            dragConstraints={{ top: 0, bottom: 0 }}
-            dragElastic={{ top: 0, bottom: 0.6 }}
-            onDragEnd={(_, info) => info.offset.y > 120 && onClose()}
+            className="glass no-scrollbar relative z-10 max-h-[85vh] w-full max-w-md overflow-y-auto rounded-[1.75rem] border border-border/70 p-5 shadow-glow"
+            initial={{ scale: 0.92, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.92, opacity: 0, y: 20 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 30 }}
           >
-            <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-border" />
             {title && (
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="font-display text-lg font-bold">{title}</h2>
+                <h2 className="font-display text-xl font-bold">{title}</h2>
                 <button
                   onClick={onClose}
                   className="grid h-9 w-9 place-items-center rounded-full bg-surface-2 text-muted transition hover:text-content"

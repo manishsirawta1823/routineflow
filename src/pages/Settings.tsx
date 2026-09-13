@@ -131,11 +131,11 @@ export function Settings() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
-              className="min-w-0 flex-1 rounded-xl border border-border bg-surface-2 px-3 py-2.5 text-sm outline-none focus:border-brand"
+              className="min-w-0 flex-1 rounded-full border border-border bg-surface-2 px-4 py-2.5 text-sm outline-none focus:border-brand"
             />
             <button
               onClick={saveProfile}
-              className="rounded-xl bg-brand px-4 text-sm font-semibold text-white transition active:scale-95"
+              className="rounded-full bg-brand px-5 text-sm font-semibold text-white transition active:scale-95"
             >
               Save
             </button>
@@ -154,12 +154,12 @@ export function Settings() {
                 haptic(6)
               }}
               className={cn(
-                'relative flex flex-1 items-center justify-center gap-1.5 rounded-xl py-2.5 text-sm font-semibold transition',
+                'relative flex flex-1 items-center justify-center gap-1.5 rounded-full py-2.5 text-sm font-semibold transition',
                 settings.theme === key ? 'text-white' : 'text-muted',
               )}
             >
               {settings.theme === key && (
-                <motion.span layoutId="theme-pill" className="absolute inset-0 rounded-xl bg-brand" transition={{ type: 'spring', stiffness: 380, damping: 30 }} />
+                <motion.span layoutId="theme-pill" className="absolute inset-0 rounded-full bg-brand" transition={{ type: 'spring', stiffness: 380, damping: 30 }} />
               )}
               <Icon size={16} className="relative z-10" />
               <span className="relative z-10">{label}</span>
@@ -213,13 +213,13 @@ export function Settings() {
         }
       >
         {routines.length === 0 ? (
-          <div className="flex items-center gap-3 rounded-xl bg-surface-2 p-3 text-sm text-muted">
+          <div className="flex items-center gap-3 rounded-2xl bg-surface-2 p-3 text-sm text-muted">
             <Repeat size={18} /> No routines yet. Add tasks that repeat automatically.
           </div>
         ) : (
           <div className="space-y-2">
             {routines.map((r) => (
-              <div key={r.id} className="flex items-center gap-3 rounded-xl bg-surface-2 p-3">
+              <div key={r.id} className="flex items-center gap-3 rounded-2xl bg-surface-2 p-3">
                 <span className="h-8 w-1.5 rounded-full" style={{ background: `linear-gradient(rgb(${COLORS[r.color].from}), rgb(${COLORS[r.color].to}))` }} />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-semibold">{r.title}</p>
@@ -329,7 +329,7 @@ function Section({ title, action, children }: { title: string; action?: React.Re
 function Row({ icon, title, subtitle, children }: { icon: React.ReactNode; title: string; subtitle?: string; children?: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface-2">{icon}</div>
+      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-surface-2">{icon}</div>
       <div className="min-w-0 flex-1">
         <p className="text-sm font-semibold">{title}</p>
         {subtitle && <p className="text-xs text-muted">{subtitle}</p>}

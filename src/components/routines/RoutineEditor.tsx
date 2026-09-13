@@ -77,7 +77,7 @@ export function RoutineEditor({ open, onClose, editing }: Props) {
                 key={`${d.i}-${d.l}`}
                 onClick={() => toggleDay(d.i)}
                 className={cn(
-                  'h-10 flex-1 rounded-xl text-sm font-bold transition',
+                  'h-11 flex-1 rounded-2xl text-sm font-bold transition',
                   days.includes(d.i) ? 'bg-brand text-white' : 'bg-surface-2 text-muted',
                 )}
               >
