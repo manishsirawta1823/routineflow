@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BottomNav } from '@/components/layout/BottomNav'
 import { Doodles } from '@/components/decor/Doodles'
-import { AuthModal } from '@/components/auth/AuthModal'
+import { AuthScreen } from '@/components/auth/AuthScreen'
 import { Today } from '@/pages/Today'
 import { History } from '@/pages/History'
 import { Reports } from '@/pages/Reports'
@@ -43,7 +43,7 @@ export default function App() {
         </Routes>
       </AnimatePresence>
       <BottomNav />
-      <AuthModal />
+      <AuthScreen />
     </>
   )
 }
