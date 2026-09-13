@@ -28,8 +28,10 @@ export default {
         '3xl': '1.75rem',
       },
       boxShadow: {
-        soft: '0 4px 24px -8px rgb(0 0 0 / 0.15)',
-        glow: '0 8px 40px -12px rgb(var(--brand) / 0.5)',
+        soft: '0 1px 2px rgb(30 20 60 / 0.04), 0 10px 28px -14px rgb(30 20 60 / 0.18)',
+        card: '0 1px 3px rgb(30 20 60 / 0.05), 0 16px 40px -18px rgb(30 20 60 / 0.22)',
+        glow: '0 10px 34px -10px rgb(var(--brand) / 0.55)',
+        nav: '0 6px 30px -8px rgb(30 20 60 / 0.22)',
       },
       keyframes: {
         'fade-in': {

@@ -46,7 +46,7 @@ export function History() {
   const selectedTodos = selected ? todosForDate(selected) : []
 
   return (
-    <div className="mx-auto max-w-md px-4 pb-28 pt-[max(env(safe-area-inset-top),1rem)]">
+    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),1rem)]">
       <header className="mb-5">
         <h1 className="font-display text-2xl font-extrabold tracking-tight">History</h1>
         <p className="text-sm text-muted">Every day you've shown up.</p>

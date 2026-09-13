@@ -92,6 +92,9 @@ body {
   }
   .safe-b { padding-bottom: env(safe-area-inset-bottom); }
   .safe-t { padding-top: env(safe-area-inset-top); }
+  /* clears the floating bottom nav + FAB on every page, notch-aware */
+  .pb-nav { padding-bottom: calc(7.5rem + env(safe-area-inset-bottom)); }
+  .bottom-nav-gap { bottom: calc(5.75rem + env(safe-area-inset-bottom)); }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   .text-balance { text-wrap: balance; }

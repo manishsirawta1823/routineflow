@@ -56,7 +56,7 @@ export function Today() {
   }
 
   return (
-    <div className="mx-auto max-w-md px-4 pb-28 pt-[max(env(safe-area-inset-top),1.25rem)]">
+    <div className="pb-nav mx-auto max-w-md px-4 pt-[max(env(safe-area-inset-top),1.25rem)]">
       {/* header */}
       <header className="mb-3 text-center">
         <p className="font-hand text-lg text-muted">
@@ -177,17 +177,18 @@ export function Today() {
         />
       </div>
 
-      {/* FAB — pinned to the right edge of the centered column, no overflow */}
-      <div className="pointer-events-none fixed inset-x-0 bottom-24 z-30 mx-auto max-w-md px-4">
+      {/* FAB — pinned to the right edge of the centered column, above the nav */}
+      <div className="bottom-nav-gap pointer-events-none fixed inset-x-0 z-30 mx-auto max-w-md px-4">
         <div className="flex justify-end">
-          <button
+          <motion.button
             onClick={openNew}
-            className="pointer-events-auto flex items-center gap-2 rounded-full px-5 py-3.5 font-bold text-white shadow-glow transition active:scale-95"
-            style={{ backgroundImage: 'linear-gradient(135deg, rgb(196 181 253), rgb(249 168 212))' }}
+            whileTap={{ scale: 0.94 }}
+            className="pointer-events-auto flex items-center gap-2 rounded-full px-5 py-3.5 font-extrabold text-white shadow-glow ring-1 ring-white/30"
+            style={{ backgroundImage: 'linear-gradient(135deg, rgb(196 181 253), rgb(244 114 182))' }}
           >
-            <Plus size={20} strokeWidth={2.6} />
-            <span className="text-sm">Add</span>
-          </button>
+            <Plus size={20} strokeWidth={3} />
+            <span className="text-sm">Add task</span>
+          </motion.button>
         </div>
       </div>
 
