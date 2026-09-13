@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Check, Clock } from 'lucide-react'
+import { FaCheck as Check, FaClock as Clock } from 'react-icons/fa6'
 import type { Todo } from '@/lib/types'
 import { COLORS } from '@/lib/colors'
 import { cn, haptic } from '@/lib/utils'
@@ -30,7 +30,7 @@ export const TodoCard = forwardRef<HTMLDivElement, Props>(function TodoCard(
       exit={{ opacity: 0, x: -30, transition: { duration: 0.18 } }}
       transition={{ type: 'spring', stiffness: 350, damping: 30 }}
       className={cn(
-        'group relative flex items-center gap-3 overflow-hidden rounded-2xl border border-border/70 bg-surface p-2.5 pl-3 shadow-soft transition',
+        'group relative flex items-center gap-3 overflow-hidden rounded-[1.75rem] border border-border/70 bg-surface p-2.5 pl-3 shadow-soft transition',
         todo.completed && 'opacity-70',
       )}
       onClick={() => !readOnly && onEdit?.(todo)}
@@ -106,7 +106,7 @@ export const TodoCard = forwardRef<HTMLDivElement, Props>(function TodoCard(
 
       {/* right: category emoji in a soft colored tile */}
       <div
-        className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl text-xl"
+        className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-xl"
         style={{ background: `rgb(${c.from} / 0.18)` }}
       >
         {cat ? cat.emoji : '📝'}

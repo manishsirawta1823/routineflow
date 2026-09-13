@@ -10,7 +10,14 @@ import {
   BarChart,
   Cell,
 } from 'recharts'
-import { Flame, TrendingUp, TrendingDown, Trophy, Target, CalendarCheck } from 'lucide-react'
+import {
+  FaFire as Flame,
+  FaArrowTrendUp as TrendingUp,
+  FaArrowTrendDown as TrendingDown,
+  FaTrophy as Trophy,
+  FaBullseye as Target,
+  FaCalendarCheck as CalendarCheck,
+} from 'react-icons/fa6'
 import { useStore } from '@/store/useStore'
 import { TopControls } from '@/components/layout/TopControls'
 import { dayStats, summarize, currentStreak, longestStreak, byCategory, grade } from '@/lib/stats'

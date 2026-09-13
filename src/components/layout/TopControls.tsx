@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Bell, Settings, Clock, CheckCircle2 } from 'lucide-react'
+import {
+  FaBell as Bell,
+  FaGear as Settings,
+  FaClock as Clock,
+  FaCircleCheck as CheckCircle2,
+} from 'react-icons/fa6'
 import { useStore } from '@/store/useStore'
 import { dayKey } from '@/lib/dates'
 import { COLORS } from '@/lib/colors'

@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
-  Moon,
-  Sun,
-  Monitor,
-  Bell,
-  BellRing,
-  Repeat,
-  Plus,
-  Cloud,
-  CloudOff,
-  Trash2,
-  Pencil,
-  LogIn,
-  LogOut,
-  Heart,
-} from 'lucide-react'
+  FaMoon as Moon,
+  FaSun as Sun,
+  FaDesktop as Monitor,
+  FaBell as Bell,
+  FaBell as BellRing,
+  FaRepeat as Repeat,
+  FaPlus as Plus,
+  FaCloud as Cloud,
+  FaCloud as CloudOff,
+  FaTrashCan as Trash2,
+  FaPencil as Pencil,
+  FaRightToBracket as LogIn,
+  FaRightFromBracket as LogOut,
+  FaHeart as Heart,
+} from 'react-icons/fa6'
 import { useStore } from '@/store/useStore'
 import { isCloudEnabled, supabase } from '@/lib/supabase'
 import { useAuth } from '@/store/useAuth'

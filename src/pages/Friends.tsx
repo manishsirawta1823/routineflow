@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Radio, UserPlus, Lock, Check, X, Clock, LogIn, Users } from 'lucide-react'
+import {
+  FaTowerBroadcast as Radio,
+  FaUserPlus as UserPlus,
+  FaLock as Lock,
+  FaCheck as Check,
+  FaXmark as X,
+  FaClock as Clock,
+  FaRightToBracket as LogIn,
+  FaUsers as Users,
+} from 'react-icons/fa6'
 import { isCloudEnabled } from '@/lib/supabase'
 import { useAuth } from '@/store/useAuth'
 import { useFriends, type Friend } from '@/store/useFriends'

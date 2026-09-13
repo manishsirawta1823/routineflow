@@ -23,9 +23,9 @@ export default {
         },
       },
       borderRadius: {
-        xl: '1rem',
-        '2xl': '1.25rem',
-        '3xl': '1.75rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
       },
       boxShadow: {
         soft: '0 1px 2px rgb(30 20 60 / 0.04), 0 10px 28px -14px rgb(30 20 60 / 0.18)',

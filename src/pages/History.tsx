@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { FaChevronLeft as ChevronLeft, FaChevronRight as ChevronRight } from 'react-icons/fa6'
 import { useStore } from '@/store/useStore'
 import { dayStats } from '@/lib/stats'
 import {

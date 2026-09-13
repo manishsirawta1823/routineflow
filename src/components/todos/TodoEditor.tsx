@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowLeft, Sparkles, Clock, Check, Trash2 } from 'lucide-react'
+import {
+  FaArrowLeft as ArrowLeft,
+  FaWandMagicSparkles as Sparkles,
+  FaClock as Clock,
+  FaCheck as Check,
+  FaTrashCan as Trash2,
+} from 'react-icons/fa6'
 import { COLORS, COLOR_KEYS } from '@/lib/colors'
 import type { Todo, TodoColor } from '@/lib/types'
 import { cn, haptic } from '@/lib/utils'

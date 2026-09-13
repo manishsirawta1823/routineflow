@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Repeat } from 'lucide-react'
+import { FaRepeat as Repeat } from 'react-icons/fa6'
 import { Sheet } from '@/components/ui/Sheet'
 import { COLORS, COLOR_KEYS } from '@/lib/colors'
 import type { Routine, TodoColor } from '@/lib/types'

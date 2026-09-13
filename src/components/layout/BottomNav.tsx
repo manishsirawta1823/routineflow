@@ -1,6 +1,12 @@
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { CalendarDays, Home, BarChart3, Users, Plus } from 'lucide-react'
+import {
+  FaCalendarDays as CalendarDays,
+  FaHouse as Home,
+  FaChartColumn as BarChart3,
+  FaUsers as Users,
+  FaPlus as Plus,
+} from 'react-icons/fa6'
 import { cn, haptic } from '@/lib/utils'
 import { useUI } from '@/store/useUI'
 
@@ -59,12 +65,12 @@ function Tab({ to, label, icon: Icon, active }: { to: string; label: string; ico
     <NavLink
       to={to}
       onClick={() => haptic()}
-      className="relative flex flex-1 flex-col items-center gap-1 rounded-2xl py-2 text-[10px] font-bold"
+      className="relative flex flex-1 flex-col items-center gap-1 rounded-full py-2 text-[10px] font-bold"
     >
       {active && (
         <motion.span
           layoutId="nav-pill"
-          className="absolute inset-0 rounded-2xl bg-brand/15"
+          className="absolute inset-0 rounded-full bg-brand/15"
           transition={{ type: 'spring', stiffness: 380, damping: 30 }}
         />
       )}

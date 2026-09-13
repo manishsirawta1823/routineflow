@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Plus, Sparkles, Target, StickyNote, PenLine } from 'lucide-react'
+import {
+  FaPlus as Plus,
+  FaWandMagicSparkles as Sparkles,
+  FaBullseye as Target,
+  FaNoteSticky as StickyNote,
+  FaPen as PenLine,
+} from 'react-icons/fa6'
 import { useStore } from '@/store/useStore'
 import { useUI } from '@/store/useUI'
 import { TopControls } from '@/components/layout/TopControls'

@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
-  X,
-  Mail,
-  Lock,
-  User,
-  AtSign,
-  Eye,
-  EyeOff,
-  Loader2,
-  ArrowLeft,
-  Sparkles,
-  Check,
-} from 'lucide-react'
+  FaXmark as X,
+  FaEnvelope as Mail,
+  FaLock as Lock,
+  FaUser as User,
+  FaAt as AtSign,
+  FaEye as Eye,
+  FaEyeSlash as EyeOff,
+  FaSpinner as Loader2,
+  FaArrowLeft as ArrowLeft,
+  FaWandMagicSparkles as Sparkles,
+  FaCheck as Check,
+} from 'react-icons/fa6'
 import { useAuth } from '@/store/useAuth'
 import { useUI } from '@/store/useUI'
 import { haptic, cn } from '@/lib/utils'
