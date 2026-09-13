@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowLeft, Sparkles, Clock, Check } from 'lucide-react'
+import { ArrowLeft, Sparkles, Clock, Check, Trash2 } from 'lucide-react'
 import { COLORS, COLOR_KEYS } from '@/lib/colors'
 import type { Todo, TodoColor } from '@/lib/types'
 import { cn, haptic } from '@/lib/utils'
@@ -18,6 +18,7 @@ export function TodoEditor({ open, onClose, date, editing }: Props) {
   const categories = useStore((s) => s.categories)
   const addTodo = useStore((s) => s.addTodo)
   const updateTodo = useStore((s) => s.updateTodo)
+  const deleteTodo = useStore((s) => s.deleteTodo)
 
   const [title, setTitle] = useState('')
   const [note, setNote] = useState('')
@@ -70,7 +71,20 @@ export function TodoEditor({ open, onClose, date, editing }: Props) {
             >
               <ArrowLeft size={20} />
             </button>
-            <h1 className="font-display text-2xl font-bold text-content">{editing ? 'Edit task' : 'New task'}</h1>
+            <h1 className="flex-1 font-display text-2xl font-bold text-content">{editing ? 'Edit task' : 'New task'}</h1>
+            {editing && (
+              <button
+                onClick={() => {
+                  haptic(10)
+                  deleteTodo(editing.id)
+                  onClose()
+                }}
+                className="grid h-11 w-11 place-items-center rounded-full bg-surface/80 text-rose-500 shadow-soft ring-1 ring-white/50 backdrop-blur dark:ring-white/10"
+                aria-label="Delete task"
+              >
+                <Trash2 size={19} />
+              </button>
+            )}
           </div>
 
           {/* scroll body */}
