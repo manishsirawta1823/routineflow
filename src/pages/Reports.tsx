@@ -12,6 +12,7 @@ import {
 } from 'recharts'
 import { Flame, TrendingUp, TrendingDown, Trophy, Target, CalendarCheck } from 'lucide-react'
 import { useStore } from '@/store/useStore'
+import { TopControls } from '@/components/layout/TopControls'
 import { dayStats, summarize, currentStreak, longestStreak, byCategory, grade } from '@/lib/stats'
 import { weekRange, monthRange, yearRange, format, fromKey } from '@/lib/dates'
 import { COLORS } from '@/lib/colors'
@@ -72,7 +73,8 @@ export function Reports() {
   }, [stats, period])
 
   return (
-    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),1rem)]">
+    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),0.85rem)]">
+      <TopControls />
       <header className="mb-4">
         <h1 className="font-display text-2xl font-extrabold tracking-tight">Report Card</h1>
         <p className="text-sm text-muted">{range.label}</p>

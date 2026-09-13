@@ -5,6 +5,7 @@ import { isCloudEnabled } from '@/lib/supabase'
 import { useAuth } from '@/store/useAuth'
 import { useFriends, type Friend } from '@/store/useFriends'
 import { useUI } from '@/store/useUI'
+import { TopControls } from '@/components/layout/TopControls'
 import { COLORS } from '@/lib/colors'
 import { pct, haptic } from '@/lib/utils'
 
@@ -35,7 +36,8 @@ export function Friends() {
   const outgoing = friends.filter((f) => f.direction === 'outgoing')
 
   return (
-    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),1.25rem)]">
+    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),0.85rem)]">
+      <TopControls />
       <header className="mb-5 flex items-center justify-between">
         <div>
           <h1 className="font-script text-3xl text-content">Friends</h1>

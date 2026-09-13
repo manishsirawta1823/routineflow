@@ -14,6 +14,7 @@ import {
   longDay,
 } from '@/lib/dates'
 import { TodoCard } from '@/components/todos/TodoCard'
+import { TopControls } from '@/components/layout/TopControls'
 import { cn } from '@/lib/utils'
 
 const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -46,7 +47,8 @@ export function History() {
   const selectedTodos = selected ? todosForDate(selected) : []
 
   return (
-    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),1rem)]">
+    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),0.85rem)]">
+      <TopControls />
       <header className="mb-5">
         <h1 className="font-display text-2xl font-extrabold tracking-tight">History</h1>
         <p className="text-sm text-muted">Every day you've shown up.</p>

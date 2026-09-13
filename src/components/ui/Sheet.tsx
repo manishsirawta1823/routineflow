@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 
 interface Props {
@@ -9,7 +10,8 @@ interface Props {
   children: React.ReactNode
 }
 
-/** Mobile-first bottom sheet with backdrop + drag-to-dismiss feel. */
+/** Mobile-first bottom sheet with backdrop + drag-to-dismiss feel.
+ *  Portaled to <body> so it escapes page transforms and sits above the nav. */
 export function Sheet({ open, onClose, title, children }: Props) {
   useEffect(() => {
     if (!open) return
@@ -22,10 +24,10 @@ export function Sheet({ open, onClose, title, children }: Props) {
     }
   }, [open, onClose])
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center">
+        <div className="fixed inset-0 z-[70] flex items-end justify-center sm:items-center">
           <motion.div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
@@ -61,6 +63,7 @@ export function Sheet({ open, onClose, title, children }: Props) {
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   )
 }

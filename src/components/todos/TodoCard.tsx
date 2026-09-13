@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Clock, Trash2 } from 'lucide-react'
 import type { Todo } from '@/lib/types'
 import { COLORS } from '@/lib/colors'
@@ -41,16 +41,17 @@ export const TodoCard = forwardRef<HTMLDivElement, Props>(function TodoCard(
       onClick={() => !readOnly && onEdit?.(todo)}
     >
       {/* colored dot checkbox */}
-      <button
+      <motion.button
         onClick={(e) => {
           e.stopPropagation()
           if (readOnly) return
-          haptic(todo.completed ? 8 : 18)
+          haptic(todo.completed ? 8 : 20)
           toggle(todo.id)
         }}
         disabled={readOnly}
+        whileTap={{ scale: 0.8 }}
         aria-label={todo.completed ? 'Mark incomplete' : 'Mark complete'}
-        className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 transition-all"
+        className="relative grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 transition-colors"
         style={{
           borderColor: `rgb(${c.ring})`,
           background: todo.completed ? `linear-gradient(135deg, rgb(${c.from}), rgb(${c.to}))` : 'transparent',
@@ -58,13 +59,27 @@ export const TodoCard = forwardRef<HTMLDivElement, Props>(function TodoCard(
       >
         <motion.span
           initial={false}
-          animate={{ scale: todo.completed ? 1 : 0.3, opacity: todo.completed ? 1 : 0 }}
-          transition={{ type: 'spring', stiffness: 500, damping: 22 }}
+          animate={{ scale: todo.completed ? 1 : 0.2, opacity: todo.completed ? 1 : 0 }}
+          transition={{ type: 'spring', stiffness: 520, damping: 20 }}
           className="text-white"
         >
-          <Check size={15} strokeWidth={3.5} />
+          <Check size={16} strokeWidth={3.6} />
         </motion.span>
-      </button>
+        {/* satisfying burst when completed */}
+        <AnimatePresence>
+          {todo.completed && (
+            <motion.span
+              key="burst"
+              className="pointer-events-none absolute inset-0 rounded-full"
+              style={{ boxShadow: `0 0 0 2px rgb(${c.ring})` }}
+              initial={{ scale: 0.6, opacity: 0.7 }}
+              animate={{ scale: 2.2, opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+            />
+          )}
+        </AnimatePresence>
+      </motion.button>
 
       {/* body */}
       <div className="min-w-0 flex-1">

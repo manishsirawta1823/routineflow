@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Plus, Sparkles, Target, StickyNote, PenLine } from 'lucide-react'
 import { useStore } from '@/store/useStore'
+import { useUI } from '@/store/useUI'
+import { TopControls } from '@/components/layout/TopControls'
 import { dayKey, isTodayKey, longDay, fromKey, weekRange, format } from '@/lib/dates'
 import { TodoCard } from '@/components/todos/TodoCard'
 import { TodoEditor } from '@/components/todos/TodoEditor'
@@ -33,9 +35,21 @@ export function Today() {
   const dayMeta = useStore((s) => s.dayMeta[date])
   const setDayMeta = useStore((s) => s.setDayMeta)
 
+  const pendingAdd = useUI((s) => s.pendingAdd)
+  const clearAdd = useUI((s) => s.clearAdd)
+
   useEffect(() => {
     materialize(date)
   }, [date, materialize])
+
+  // the bottom-nav center "+" requests an add; open the editor for it
+  useEffect(() => {
+    if (pendingAdd) {
+      setEditing(null)
+      setEditorOpen(true)
+      clearAdd()
+    }
+  }, [pendingAdd, clearAdd])
 
   const todos = todosForDate(date)
   const completed = todos.filter((t) => t.completed).length
@@ -56,7 +70,8 @@ export function Today() {
   }
 
   return (
-    <div className="pb-nav mx-auto max-w-md px-4 pt-[max(env(safe-area-inset-top),1.25rem)]">
+    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),0.85rem)]">
+      <TopControls />
       {/* header */}
       <header className="mb-3 text-center">
         <p className="font-hand text-lg text-muted">
@@ -175,21 +190,6 @@ export function Today() {
           value={dayMeta?.notes ?? ''}
           onChange={(v) => setDayMeta(date, { notes: v })}
         />
-      </div>
-
-      {/* FAB — pinned to the right edge of the centered column, above the nav */}
-      <div className="bottom-nav-gap pointer-events-none fixed inset-x-0 z-30 mx-auto max-w-md px-4">
-        <div className="flex justify-end">
-          <motion.button
-            onClick={openNew}
-            whileTap={{ scale: 0.94 }}
-            className="pointer-events-auto flex items-center gap-2 rounded-full px-5 py-3.5 font-extrabold text-white shadow-glow ring-1 ring-white/30"
-            style={{ backgroundImage: 'linear-gradient(135deg, rgb(196 181 253), rgb(244 114 182))' }}
-          >
-            <Plus size={20} strokeWidth={3} />
-            <span className="text-sm">Add task</span>
-          </motion.button>
-        </div>
       </div>
 
       <TodoEditor open={editorOpen} onClose={() => setEditorOpen(false)} date={date} editing={editing} />

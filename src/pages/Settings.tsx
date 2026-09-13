@@ -21,6 +21,7 @@ import { isCloudEnabled, supabase } from '@/lib/supabase'
 import { useAuth } from '@/store/useAuth'
 import { useUI } from '@/store/useUI'
 import { RoutineEditor } from '@/components/routines/RoutineEditor'
+import { TopControls } from '@/components/layout/TopControls'
 import { COLORS } from '@/lib/colors'
 import { cn, haptic } from '@/lib/utils'
 import type { Routine } from '@/lib/types'
@@ -109,7 +110,8 @@ export function Settings() {
   }
 
   return (
-    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),1rem)]">
+    <div className="mx-auto max-w-md px-4 pb-nav pt-[max(env(safe-area-inset-top),0.85rem)]">
+      <TopControls />
       <header className="mb-5">
         <h1 className="font-display text-2xl font-extrabold tracking-tight">You</h1>
         <p className="text-sm text-muted">Profile, appearance & routines.</p>
