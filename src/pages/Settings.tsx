@@ -306,7 +306,7 @@ export function Settings() {
       </button>
 
       <p className="mt-6 flex items-center justify-center gap-1.5 text-center text-xs text-muted">
-        Made with <Heart size={12} className="text-rose-400" /> · RoutineFlow v0.1
+        Made with <Heart size={12} className="text-rose-400" /> · Rozy v0.1
       </p>
 
       <RoutineEditor open={routineOpen} onClose={() => setRoutineOpen(false)} editing={editingRoutine} />

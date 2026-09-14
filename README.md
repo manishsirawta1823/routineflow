@@ -1,4 +1,4 @@
-# RoutineFlow 🌊
+# Rozy 🌸
 
 Your daily routine, habits & report card — **track, improve, and share with friends.**
 A beautiful, installable PWA built with React + TypeScript + Tailwind + Framer Motion, with an optional Supabase backend for auth, cloud sync, friends and **live** routine sharing.

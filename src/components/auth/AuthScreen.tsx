@@ -122,7 +122,7 @@ export function AuthScreen() {
               >
                 <Sparkles size={38} strokeWidth={2.2} />
               </motion.div>
-              <h1 className="font-script text-3xl text-content">RoutineFlow</h1>
+              <h1 className="font-script text-3xl text-content">Rozy</h1>
               <p className="mt-1 font-hand text-lg text-muted">plan your day, beautifully ✿</p>
             </div>
 
@@ -219,7 +219,7 @@ export function AuthScreen() {
             <div className="mt-6 text-center text-sm text-muted">
               {view === 'signin' && (
                 <>
-                  New to RoutineFlow?{' '}
+                  New to Rozy?{' '}
                   <button onClick={() => go('signup')} className="font-bold text-brand">
                     Create an account
                   </button>

@@ -1,9 +1,9 @@
 {
-  "name": "routineflow",
+  "name": "rozy",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "RoutineFlow - Personal daily routine & habit tracker with friends, live sharing, and report cards.",
+  "description": "Rozy - Personal daily routine & habit tracker with friends, live sharing, and report cards.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

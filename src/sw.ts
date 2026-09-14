@@ -25,7 +25,7 @@ self.addEventListener('push', (event: PushEvent) => {
   } catch {
     data = { body: event.data?.text() }
   }
-  const title = data.title ?? 'RoutineFlow'
+  const title = data.title ?? 'Rozy'
   event.waitUntil(
     self.registration.showNotification(title, {
       body: data.body ?? '',

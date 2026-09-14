@@ -14,9 +14,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'RoutineFlow',
-        short_name: 'RoutineFlow',
-        description: 'Your daily routine, habits & report card — track, improve, share.',
+        name: 'Rozy',
+        short_name: 'Rozy',
+        description: 'Rozy — your daily routine, habits & report card. Track, improve, share.',
         theme_color: '#e9eefb',
         background_color: '#e9eefb',
         display: 'standalone',
