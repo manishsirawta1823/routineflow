@@ -30,8 +30,8 @@ export function useReminders() {
         try {
           new Notification('⏰ ' + t.title, {
             body: reminderLeadMinutes > 0 ? `Starting in ${reminderLeadMinutes} min` : 'Time to start',
-            icon: '/favicon.svg',
-            badge: '/favicon.svg',
+            icon: '/pwa-192.png',
+            badge: '/pwa-192.png',
             tag: t.id,
           })
         } catch {
